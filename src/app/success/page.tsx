@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 
 export default function SuccessPage() {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [tier, setTier] = useState<string>('starter');
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -61,6 +61,7 @@ export default function SuccessPage() {
             
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={user.photoURL || ''} alt="Profile" className="w-8 h-8 rounded-full" />
                 <span className="text-white text-sm">{user.displayName || user.email}</span>
               </div>
@@ -84,7 +85,7 @@ export default function SuccessPage() {
           </h2>
           <p className="text-xl text-purple-300 max-w-3xl mx-auto">
             Welcome to the future of AI development! Your {tier === 'starter' ? 'Starter' : 'Pro'} subscription is now active.
-            <span className="text-white font-semibold"> Let's get you set up.</span>
+            <span className="text-white font-semibold"> Let&apos;s get you set up.</span>
           </p>
         </div>
 

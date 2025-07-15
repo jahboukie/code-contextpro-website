@@ -47,3 +47,5 @@ next-env.d.ts
 
 # Secret sauce - no documentation in commits
 *.md
+
+.vercel

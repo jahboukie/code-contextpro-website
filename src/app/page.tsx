@@ -48,11 +48,7 @@ export default function HomePage() {
     }
   };
 
-  const handleGetLifetimeAccess = () => {
-    setLoading(true);
-    // Redirect to NEW Stripe test payment - Starter Plan ($29.99/month) with proper success URL
-    window.location.href = 'https://buy.stripe.com/test_5kQfZh4Awea04h80yN4Ja03';
-  };
+
 
   const handleLogout = async () => {
     try {
@@ -150,6 +146,7 @@ export default function HomePage() {
                   </button>
 
                   <div className="flex items-center justify-center gap-2 mb-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={user.photoURL || ''} alt="Profile" className="w-8 h-8 rounded-full" />
                     <p className="text-green-300 text-sm">
                       ✅ Signed in as {user.displayName || user.email}
@@ -201,19 +198,19 @@ export default function HomePage() {
             <div className="bg-red-900/20 backdrop-blur-sm border border-red-500/30 rounded-2xl p-8 text-center">
               <div className="text-6xl mb-4">🤖</div>
               <h3 className="text-2xl font-bold text-red-400 mb-4">Basic Assistant</h3>
-              <p className="text-red-200">No memory between sessions. Can't learn patterns. Requires constant hand-holding and re-explanation.</p>
+              <p className="text-red-200">No memory between sessions. Can&apos;t learn patterns. Requires constant hand-holding and re-explanation.</p>
             </div>
 
             <div className="bg-orange-900/20 backdrop-blur-sm border border-orange-500/30 rounded-2xl p-8 text-center">
               <div className="text-6xl mb-4">🔄</div>
               <h3 className="text-2xl font-bold text-orange-400 mb-4">Manual Execution</h3>
-              <p className="text-orange-200">Can't run code autonomously. Requires you to copy-paste and test everything manually.</p>
+              <p className="text-orange-200">Can&apos;t run code autonomously. Requires you to copy-paste and test everything manually.</p>
             </div>
 
             <div className="bg-yellow-900/20 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-8 text-center">
               <div className="text-6xl mb-4">💸</div>
               <h3 className="text-2xl font-bold text-yellow-400 mb-4">Limited Intelligence</h3>
-              <p className="text-yellow-200">Paying for AI that can't evolve, adapt, or become truly autonomous in your workflow.</p>
+              <p className="text-yellow-200">Paying for AI that can&apos;t evolve, adapt, or become truly autonomous in your workflow.</p>
             </div>
           </div>
 
