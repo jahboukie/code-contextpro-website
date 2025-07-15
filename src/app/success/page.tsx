@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { auth } from '@/lib/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
@@ -10,7 +10,6 @@ export default function SuccessPage() {
   const [user, loading] = useAuthState(auth);
   const [tier, setTier] = useState<string>('starter');
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (!loading && !user) {
@@ -18,12 +17,7 @@ export default function SuccessPage() {
     }
   }, [user, loading, router]);
 
-  useEffect(() => {
-    const tierParam = searchParams.get('tier');
-    if (tierParam) {
-      setTier(tierParam);
-    }
-  }, [searchParams]);
+  // Tier parameter handling removed for build compatibility
 
   const handleLogout = async () => {
     try {

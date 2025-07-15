@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 
 export default function UpgradePage() {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [selectedTier, setSelectedTier] = useState<'starter' | 'pro'>('starter');
   const [paymentLoading, setPaymentLoading] = useState(false);
   const router = useRouter();
@@ -70,8 +70,7 @@ export default function UpgradePage() {
             </div>
             
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <img src={user.photoURL || ''} alt="Profile" className="w-8 h-8 rounded-full" />
+              <div className="flex items-center gap-2"><img src={user.photoURL || ''} alt="Profile" className="w-8 h-8 rounded-full" />
                 <span className="text-white text-sm">{user.displayName || user.email}</span>
               </div>
               <button
